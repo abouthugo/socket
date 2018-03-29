@@ -2,7 +2,7 @@ from socket import *
 MAX_SIZE = 4096  # this is how big the segment is(512 bytes)
 PORT = 12345  # Arbitrary port number
 IP = ''  # since its local connection this is an empty string
-PROTOCOL = SOCK_DGRAM  # the protocol used here is UDP
+TRANSFER_PROTOCOL = SOCK_DGRAM  # the protocol used here is UDP
 IP_VERSION = AF_INET  # the IP version used for the connection is ipv4
 
 
@@ -21,7 +21,7 @@ The application:
 def run_service(expression, destination):
     while True:
         sock.sendto(expression.encode(), destination)
-        if expression == 'q':
+        if expression.lower() == 'q':
             break
         response, destination = sock.recvfrom(MAX_SIZE)
         response = response.decode('utf-8')
@@ -31,7 +31,7 @@ def run_service(expression, destination):
 
 # PROGRAM STARTS HERE:
 if __name__ == "__main__":
-    sock = socket(IP_VERSION, PROTOCOL)  # create socket with (ipv4 address AND UDP connection)
+    sock = socket(IP_VERSION, TRANSFER_PROTOCOL)  # create socket with (ipv4 address AND UDP connection)
     msg = 'Hello UDP server'  # initial message to send to server
     sock.settimeout(2)  # set the timer in case no connection is being received
     sock.sendto(msg.encode(), (IP, PORT))  # Send the encoded message to destination(IP, PORT)
@@ -45,5 +45,6 @@ if __name__ == "__main__":
             print("UDP Client terminated by user")  # message to print when application is finalized
         except KeyboardInterrupt:  # EOF, whenever the user simply Ctrl-C from the program.
             print('\nUDP Client terminated by keyboard interruption.')
+            sock.sendto('q'.encode(), (IP, PORT))  # when keyboard interrupts tell the server
     except timeout:
         print('Connection lost')
