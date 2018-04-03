@@ -1,5 +1,4 @@
 from socket import *
-import socket
 import sys
 
 
