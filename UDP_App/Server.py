@@ -52,12 +52,8 @@ The run_service function...
     - If user exists print a message to let the server know
 """
 def run_service(socket, size):
-    while True:
         expression, destination = socket.recvfrom(size)
         expression = expression.decode('utf-8')
-        if expression.lower() == 'q':
-            break
-        expression = compute(expression)
-        socket.sendto(expression.encode(), destination)
-    print(f'Communication with {destination[0]} stopped.')
-
+        if expression.lower() != 'q':
+            expression = compute(expression)
+            socket.sendto(expression.encode(), destination)

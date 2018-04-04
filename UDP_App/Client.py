@@ -1,3 +1,4 @@
+from socket import *
 # This python file will be use to reference the function that both
 # UDP and TCP servers will run
 
@@ -14,11 +15,16 @@ The application:
     starts again.
 """
 def run_service(sock, expression, destination, size):
+    sock.settimeout(2)  # set the timeout in case server is not up
     while True:
-        sock.sendto(expression.encode(), destination)
-        if expression.lower() == 'q':
+        try:
+            sock.sendto(expression.encode(), destination)
+            if expression.lower() == 'q':
+                break
+            response, destination = sock.recvfrom(size)
+            response = response.decode('utf-8')
+            print(f'{response.strip()}')
+            expression = input(">> ")
+        except timeout:
+            print('Connection timed out')
             break
-        response, destination = sock.recvfrom(size)
-        response = response.decode('utf-8')
-        print(f'Result: {response.strip()}')
-        expression = input(">> ")   
