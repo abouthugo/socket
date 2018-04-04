@@ -5,13 +5,13 @@ PORT = 12345  # Arbitrary port number
 # IP = '192.168.1.13'  # Linux's machine home IP address
 # IP = '192.168.1.8'  # Mac's IP home address
 IP = 'localhost'
-TRANSFER_PROTOCOL = SOCK_DGRAM  # the protocol used here is UDP
-IP_VERSION = AF_INET  # the IP version used for the connection is ipv4
+TRANSPORT_PROTOCOL = SOCK_DGRAM  # the protocol used here is UDP
+IP_FAM = AF_INET  # the IP version used for the connection is ipv4
 
 
 # PROGRAM STARTS HERE:
 if __name__ == "__main__":
-    sock = socket(IP_VERSION, TRANSFER_PROTOCOL)  # create socket with (ipv4 address AND UDP connection)
+    sock = socket(IP_FAM, TRANSPORT_PROTOCOL)  # create socket with (ipv4 address AND UDP connection)
     try:  # we need to catch the keyboard interrupt in case the user causes it
         expression = input("Enter your expression or \'q\' to exit\n>> ")  # get input to send
         run_service(sock, expression, (IP, PORT), MAX_SIZE)  # run the application
