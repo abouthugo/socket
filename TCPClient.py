@@ -16,7 +16,8 @@ if __name__ == '__main__':
         print('Connection refused')
     msg = input('Enter an expression or \'q\' for exit\n>> ')  # initial message for the user
     try:  # catch the keyboard interrupt exception
-        client_send(client, msg, BUFFER_SIZE)  # run service
+        if msg != 'q':
+            client_send(client, msg, BUFFER_SIZE)  # run service
         print('Bye!')
     except KeyboardInterrupt:
         print("\nExited by user")
