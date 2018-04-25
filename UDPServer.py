@@ -3,7 +3,7 @@ from UDP_App.Server import run_service  # import server functions
 MAX_SIZE = 4096  # 512 bytes of data
 IP_FAM = AF_INET  # we will accept ipv4 addresses
 TRANSPORT_PROTOCOL = SOCK_DGRAM  # UDP
-IP = 'localhost'  # IP it has to be localhost for servers
+IP = ''  # IP it has to be localhost for servers
 PORT = 12345  # Arbitrary port number
 ADDRESS = (IP, PORT)  # For readability purposes
 # PROGRAM STARTS HERE!!

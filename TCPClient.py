@@ -1,7 +1,7 @@
 from socket import *  # import variables and functions from socket library
 from TCP_APP.Client import client_send  # import function
-
-DEFAULT_IP = "localhost"  # The server's IP address, change when accessed remotely
+import sys
+DEFAULT_IP = ''  # The server's IP address, change when accessed remotely
 DEFAULT_PORT = 12345  # Arbitrary port number
 BUFFER_SIZE = 4096  # 512 bytes of data
 DEFAULT_ADDRESS = (DEFAULT_IP, DEFAULT_PORT)  # For readability purposes
@@ -14,6 +14,7 @@ if __name__ == '__main__':
         client.connect(DEFAULT_ADDRESS)  # Connect to server
     except ConnectionRefusedError as e:
         print('Connection refused')
+        sys.exit(0)
     msg = input('Enter an expression or \'q\' for exit\n>> ')  # initial message for the user
     try:  # catch the keyboard interrupt exception
         if msg != 'q':

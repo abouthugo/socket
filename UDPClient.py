@@ -4,7 +4,7 @@ MAX_SIZE = 4096  # this is how big the segment is(512 bytes)
 PORT = 12345  # Arbitrary port number
 # IP = '192.168.1.13'  # Linux's machine home IP address
 # IP = '192.168.1.8'  # Mac's IP home address
-IP = 'localhost'
+IP = ''
 TRANSPORT_PROTOCOL = SOCK_DGRAM  # the protocol used here is UDP
 IP_FAM = AF_INET  # the IP version used for the connection is ipv4
 
