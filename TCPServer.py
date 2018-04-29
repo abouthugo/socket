@@ -27,7 +27,7 @@ def work():
             thread_pool.start()
             print(threading.active_count())
         except KeyboardInterrupt:
-            run_event.clear()
+            run_event.clear()  # Stop the thread at keyboard interrupt
             print("\nSever stopped by user")
 
 

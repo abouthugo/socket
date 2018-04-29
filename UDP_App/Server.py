@@ -25,6 +25,12 @@ def compute(y):
     operands = ['+', '-', '*', '/', '**', '%', '(', ")", "^"]
     expr = [letter for letter in y]
     y = ''
+
+    '''
+    TODO:
+    ------
+        Make 10(10) work 
+    '''
     for s in expr:
         if s in operands or s == '.' or type(s) == int or s.isdigit():
             if s == '^':  # User might be allowed to enter '^'
@@ -38,7 +44,7 @@ def compute(y):
             return y
         else:
             return str(eval(y))
-    except (SyntaxError, EOFError):
+    except (SyntaxError, EOFError, TypeError):
         y = f'\tYour expression is invalid, you can only use operands: \n\t{operands} and digits 0-9'
         return y
 

@@ -13,7 +13,7 @@ if __name__ == '__main__':
     try:  # try to connect and catch exception
         client.connect(DEFAULT_ADDRESS)  # Connect to server
     except ConnectionRefusedError as e:
-        print('Connection refused')
+        print('Connection refused ')
         sys.exit(0)
     msg = input('Enter an expression or \'q\' for exit\n>> ')  # initial message for the user
     try:  # catch the keyboard interrupt exception
