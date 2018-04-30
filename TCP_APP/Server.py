@@ -9,8 +9,8 @@ This function simply receives and computes an expression given by the
 client and if the connection on the other end stops, then the loop 
 will break and return control to the program that called this function.
 """
-def run_service(connection, size, address):
-    while True:
+def run_service(connection, size, address, event):
+    while event.is_set():
         expr = connection.recv(size)
         if not expr or expr.decode('utf-8') == 'END':
             break
