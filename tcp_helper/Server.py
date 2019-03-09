@@ -2,7 +2,7 @@
 Simply imports the compute function used in UDP because there is no
 reason to reinvent the wheel.
 """
-from UDP_App.Server import compute
+from udp_helper.Server import compute
 
 """
 This function simply receives and computes an expression given by the 

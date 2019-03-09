@@ -1,5 +1,5 @@
 from socket import *
-from UDP_App.Client import run_service  # import client function
+from udp_helper.Client import run_service  # import client function
 MAX_SIZE = 4096  # this is how big the segment is(512 bytes)
 PORT = 12346  # Arbitrary port number
 # IP = '192.168.1.13'  # Linux's machine home IP address

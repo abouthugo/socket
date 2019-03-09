@@ -1,5 +1,5 @@
 from socket import *
-from UDP_App.Server import run_service  # import server functions
+from udp_helper.Server import run_service  # import server functions
 MAX_SIZE = 4096  # 512 bytes of data
 IP_FAM = AF_INET  # we will accept ipv4 addresses
 TRANSPORT_PROTOCOL = SOCK_DGRAM  # UDP

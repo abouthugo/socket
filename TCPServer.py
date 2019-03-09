@@ -2,7 +2,7 @@ from socket import *
 import threading
 import time
 import sys
-from TCP_APP.Server import run_service
+from tcp_helper.Server import run_service
 
 IP = ''  # The server's IP address
 PORT = 12345  # Arbitrary port number

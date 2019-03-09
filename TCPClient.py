@@ -1,5 +1,5 @@
 from socket import *  # import variables and functions from socket library
-from TCP_APP.Client import client_send  # import function
+from tcp_helper.Client import client_send  # import function
 import sys
 DEFAULT_IP = ''  # The server's IP address, change when accessed remotely
 DEFAULT_PORT = 12345  # Arbitrary port number
